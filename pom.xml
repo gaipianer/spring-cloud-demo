@@ -32,6 +32,11 @@
         <module>service-ribbon</module>
         <module>service-feign</module>
         <module>service-miya</module>
+        <module>service-gateway</module>
+        <module>service-zuul</module>
+        <module>service-consul</module>
+        <module>consul-ribbon-hi</module>
+        <module>consul-feign-hi</module>
     </modules>
 
     <dependencies>

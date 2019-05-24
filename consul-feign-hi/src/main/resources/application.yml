@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: ${management.server.servlet.context-path}/health
+        healthCheckInterval: 15s
+        enabled: true
+        service-name: consul-feign-hi
+  application:
+    name: consul-feign-hi
+server:
+  port: 8777
+management:
+  server:
+    servlet:
+      context-path: /actuator
+
+feign:
+  hystrix:
+    enabled: true

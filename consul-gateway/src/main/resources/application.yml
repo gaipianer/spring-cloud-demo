@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+      - id: service-hi
+        uri: lb://CONSUL-FEIGN-HI
+        predicates:
+        - Path=/demo/**
+        filters:
+        - StripPrefix=1
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: ${management.server.servlet.context-path}/health
+        healthCheckInterval: 15s
+        enabled: true
+        service-name: consul-gateway
+  application:
+    name: consul-gateway
+server:
+  port: 8776
